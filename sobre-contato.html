@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre Nós e Contato - Minha Chance de Visto</title>
+  <meta name="description" content="Saiba mais sobre a missão do portal Minha Chance de Visto e entre em contato conosco para sugestões ou dúvidas sobre o nosso simulador.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Placeholder do Cabeçalho -->
+  <div id="header-placeholder"></div>
+
+  <!-- Banner Superior AdSense -->
+  <div class="container">
+    <div class="adsense-placeholder">
+      <span>[Espaço Publicitário - Google AdSense (Banner Superior)]</span>
+    </div>
+  </div>
+
+  <main class="container py-4">
+    <div class="row">
+      <!-- Seção Sobre Nós -->
+      <div class="col-12 col-md-6 mb-4">
+        <div class="card h-100">
+          <h1 class="card-title">Sobre Nós</h1>
+          <p>
+            O portal <strong>Minha Chance de Visto</strong> é uma plataforma informativa e utilitária independente, desenvolvida para ajudar cidadãos brasileiros a navegarem pela complexidade do processo de solicitação de vistos consulares e <strong>Green Card</strong> para os Estados Unidos.
+          </p>
+          <p>
+            Nossa missão é democratizar a informação. Entregar um diagnóstico preliminar, transparente e estatístico baseado na praxe consular tradicional e nos critérios da lei de imigração americana (seção 214-b do INA) ajuda os solicitantes a entenderem seus pontos fortes e fracos antes de investirem valores significativos nas taxas consulares.
+          </p>
+          <p>
+            Acreditamos que a preparação, aliada a dados claros e precisos, é o melhor caminho para quem deseja obter a aprovação de sua viagem internacional.
+          </p>
+        </div>
+      </div>
+
+      <!-- Seção Contato -->
+      <div class="col-12 col-md-6 mb-4">
+        <div class="card h-100">
+          <h2 class="card-title">Fale Conosco</h2>
+          <p class="text-muted">
+            Tem alguma sugestão de melhoria para a nossa calculadora, relatórios de erros ou dúvidas institucionais? Use o canal direto abaixo.
+          </p>
+
+          <form id="contactForm" onsubmit="handleContactSubmit(event)" class="mt-3">
+            <div class="form-group">
+              <label for="contactName" class="form-label">Seu Nome</label>
+              <input type="text" id="contactName" class="form-control" placeholder="Digite seu nome completo" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="contactEmail" class="form-label">E-mail de Contato</label>
+              <input type="email" id="contactEmail" class="form-control" placeholder="nome@exemplo.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contactMsg" class="form-label">Mensagem</label>
+              <textarea id="contactMsg" class="form-control" rows="4" placeholder="Escreva aqui a sua mensagem..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block py-2">Enviar Mensagem</button>
+          </form>
+
+          <div id="contactStatus" class="mt-3" style="display: none;"></div>
+
+          <div class="mt-4 pt-3" style="border-top: 1px solid var(--gray-200);">
+            <p class="mb-0 text-muted" style="font-size: 0.9rem;">
+              <strong>E-mail Institucional:</strong><br>
+              contato@minhachancedevisto.com
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Placeholder do Rodapé -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Inclusões em JavaScript sem problemas de CORS -->
+  <script src="js/header.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/cookie-consent.js"></script>
+  <script src="js/includes.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    function handleContactSubmit(event) {
+      event.preventDefault();
+      const statusDiv = document.getElementById("contactStatus");
+      
+      // Simulação de envio com sucesso em conformidade com RN02 (sem custos de servidor/banco)
+      statusDiv.style.display = "block";
+      statusDiv.innerHTML = `
+        <div class="alert alert-success">
+          <strong>Sucesso!</strong> Sua mensagem foi enviada. Responderemos em até 48 horas úteis no e-mail informado.
+        </div>
+      `;
+      
+      document.getElementById("contactForm").reset();
+    }
+  </script>
+</body>
+</html>

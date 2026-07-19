@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Chance de Visto Aprovado - Minha Chance de Visto</title>
+  <meta name="description" content="Calcule a chance do seu visto ser aprovado ou negado. Faça o teste rápido com nosso simulador gratuito baseado nas normas consulares americanas.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230d6efd%22/><path d=%22M30,35 L70,35 M30,50 L70,50 M30,65 L55,65%22 stroke=%22white%22 stroke-width=%228%22 stroke-linecap=%22round%22/><circle cx=%2265%22 cy=%2265%22 r=%226%22 fill=%22%23198754%22/></svg>">
+</head>
+<body>
+
+  <!-- Placeholder do Cabeçalho -->
+  <div id="header-placeholder"></div>
+
+  <!-- Banner Superior AdSense -->
+  <div class="container">
+    <div style="margin: 20px 0; text-align: center; border: 1px solid var(--gray-300); border-radius: 4px; overflow: hidden; max-height: 120px;">
+      <img src="img/estatua_liberdade.png" alt="Pontos Turísticos EUA" style="width: 100%; height: 120px; object-fit: cover;">
+    </div>
+  </div>
+
+  <main class="container py-4">
+    <div class="card">
+      <h1 class="card-title text-center mb-4">Calcule a chance do seu visto ser aprovado</h1>
+      <p class="text-muted text-center mb-4">
+        Responda às 4 perguntas fundamentais com base na lei de imigração americana (presunção de intenção de imigrar) e receba um diagnóstico detalhado.
+      </p>
+
+      <form id="visaCalcForm" onsubmit="calculateVisaChance(event)">
+        <!-- 1. Objetivo da viagem -->
+        <div class="form-group">
+          <label for="visaType" class="form-label">Qual é o objetivo principal da sua viagem?</label>
+          <select id="visaType" class="form-select" required>
+            <option value="" disabled selected>Selecione uma opção...</option>
+            <option value="turismo">Turismo ou Negócios (Visto B1/B2)</option>
+            <option value="estudante">Estudos ou Intercâmbio (Visto F1/J1)</option>
+            <option value="greencard">Residência Permanente (Green Card - Imigração)</option>
+          </select>
+        </div>
+
+        <!-- 2. Vínculos socioeconômicos -->
+        <div class="form-group">
+          <label for="vincSocio" class="form-label">Como são os seus vínculos socioeconômicos com o Brasil?</label>
+          <select id="vincSocio" class="form-select" required>
+            <option value="" disabled selected>Selecione uma opção...</option>
+            <option value="estaveis">Múltiplos vínculos estáveis (emprego fixo há mais de 1 ano e/ou bens imóveis registrados)</option>
+            <option value="moderados">Vínculos moderados (apenas emprego estável ou apenas cursando faculdade/estudo regular)</option>
+            <option value="poucos">Poucos ou nenhum vínculo estável (desempregado ou sem bens, trabalho informal recente)</option>
+          </select>
+        </div>
+
+        <!-- 3. Capacidade financeira -->
+        <div class="form-group">
+          <label for="capFinanceira" class="form-label">Qual é a sua capacidade financeira para custear a viagem?</label>
+          <select id="capFinanceira" class="form-select" required>
+            <option value="" disabled selected>Selecione uma opção...</option>
+            <option value="excelente">Excelente (renda comprovada compatível com padrão americano e reserva financeira sólida)</option>
+            <option value="moderada">Moderada (comprova o básico para cobrir a permanência e as passagens sem luxo)</option>
+            <option value="limitada">Limitada (dependência de patrocinadores terceiros ou recursos financeiros reduzidos)</option>
+          </select>
+        </div>
+
+        <!-- 4. Histórico migratório -->
+        <div class="form-group">
+          <label for="histMigratorio" class="form-label">Qual é o seu histórico migratório internacional?</label>
+          <select id="histMigratorio" class="form-select" required>
+            <option value="" disabled selected>Selecione uma opção...</option>
+            <option value="positivo">Positivo (viagens anteriores recentes para países desenvolvidos, retornando no prazo)</option>
+            <option value="neutro">Neutro (passaporte limpo, primeira viagem ao exterior)</option>
+            <option value="critico">Crítico (histórico de visto americano negado anteriormente ou problemas de imigração)</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block py-3 mt-3">Calcular Chance de Visto Americano</button>
+      </form>
+
+      <!-- Link explicativo da pontuação com ícone -->
+      <p class="text-center mt-3" style="margin-top: 15px; text-align: center;">
+        <a href="perguntas-respostas.html#como-funciona-o-calculo" style="text-decoration: underline; font-size: 0.9rem; color: var(--primary); display: inline-flex; align-items: center; gap: 5px; font-weight: 600;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16" style="vertical-align: middle;">
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
+          </svg>
+          Como é feito o cálculo da probabilidade? Entenda a pontuação detalhada.
+        </a>
+      </p>
+
+      <!-- Espaço de resultado -->
+      <div id="resultadoCalculo" class="mt-4" style="display: none;">
+        <!-- Será preenchido via JavaScript -->
+      </div>
+
+      <!-- RN04: Espaço de resultado AdSense imediatamente abaixo do botão/resultado -->
+      <div style="margin-top: 20px; text-align: center; border: 1px solid var(--gray-300); border-radius: 4px; overflow: hidden; max-height: 200px;">
+        <img src="img/times_square.png" alt="Times Square New York" style="width: 100%; height: 200px; object-fit: cover;">
+      </div>
+    </div>
+  </main>
+
+  <!-- Placeholder do Rodapé -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Inclusões em JavaScript sem problemas de CORS -->
+  <script src="js/header.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/cookie-consent.js"></script>
+  <script src="js/includes.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato - Minha Chance de Visto</title>
+  <meta name="description" content="Entre em contato com a equipe do portal Minha Chance de Visto. Dúvidas, sugestões de melhorias e parcerias comerciais.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230d6efd%22/><path d=%22M30,35 L70,35 M30,50 L70,50 M30,65 L55,65%22 stroke=%22white%22 stroke-width=%228%22 stroke-linecap=%22round%22/><circle cx=%2265%22 cy=%2265%22 r=%226%22 fill=%22%23198754%22/></svg>">
+</head>
+<body>
+
+  <!-- Placeholder do Cabeçalho -->
+  <div id="header-placeholder"></div>
+
+  <!-- Foto Turística no Topo (Times Square) -->
+  <div class="container mb-4">
+    <img src="img/times_square.png" alt="Times Square New York" style="width: 100%; max-height: 200px; object-fit: cover; border-radius: 4px; border: 1px solid var(--gray-300);">
+  </div>
+
+  <main class="container py-4">
+    <div class="card" style="max-width: 600px; margin: 0 auto;">
+      <h1 class="mb-3 text-center">Fale Conosco</h1>
+      <p class="text-muted text-center mb-4">
+        Caso tenha dúvidas, críticas ou sugestões de melhorias para a nossa calculadora de chance de visto, nos mande uma mensagem.
+      </p>
+
+      <form id="contactForm" onsubmit="handleContactSubmit(event)">
+        <div class="form-group">
+          <label for="contactName" class="form-label">Nome Completo</label>
+          <input type="text" id="contactName" class="form-control" placeholder="Digite seu nome" required>
+        </div>
+
+        <div class="form-group">
+          <label for="contactEmail" class="form-label">E-mail</label>
+          <input type="email" id="contactEmail" class="form-control" placeholder="exemplo@dominio.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="contactMsg" class="form-label">Sua Mensagem</label>
+          <textarea id="contactMsg" class="form-control" rows="5" placeholder="Escreva a sua mensagem em detalhes..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block py-2 mt-3">Enviar Mensagem</button>
+      </form>
+
+      <div id="contactStatus" class="mt-3" style="display: none;"></div>
+
+      <div class="mt-4 pt-3 text-center" style="border-top: 1px solid var(--gray-200);">
+        <p class="mb-0 text-muted" style="font-size: 0.9rem;">
+          <strong>Contato Direto:</strong> jfcnetto@gmail.com
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Placeholder do Rodapé -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Inclusões em JavaScript sem problemas de CORS -->
+  <script src="js/header.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/cookie-consent.js"></script>
+  <script src="js/includes.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    function handleContactSubmit(event) {
+      event.preventDefault();
+      const statusDiv = document.getElementById("contactStatus");
+      const submitBtn = event.target.querySelector("button[type='submit']");
+      
+      const name = document.getElementById("contactName").value;
+      const email = document.getElementById("contactEmail").value;
+      const message = document.getElementById("contactMsg").value;
+
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Enviando...";
+
+      statusDiv.style.display = "block";
+      statusDiv.innerHTML = `<div class="alert alert-info">Enviando sua mensagem, por favor aguarde...</div>`;
+
+      // Envia os dados via API do FormSubmit (100% gratuito e sem necessidade de SMTP próprio)
+      fetch("https://formsubmit.co/ajax/jfcnetto@gmail.com", {
+        method: "POST",
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          Nome: name,
+          Email: email,
+          Mensagem: message
+        })
+      })
+      .then(response => {
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Enviar Mensagem";
+        if (response.ok) {
+          statusDiv.innerHTML = `
+            <div class="alert alert-success">
+              <strong>Sucesso!</strong> Sua mensagem foi enviada. Entraremos em contato em breve no e-mail informado.
+            </div>
+          `;
+          document.getElementById("contactForm").reset();
+        } else {
+          throw new Error("Erro na resposta do servidor");
+        }
+      })
+      .catch(err => {
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Enviar Mensagem";
+        statusDiv.innerHTML = `
+          <div class="alert alert-danger">
+            <strong>Ops!</strong> Não foi possível enviar a mensagem automaticamente. Se preferir, mande um e-mail direto para <strong>jfcnetto@gmail.com</strong>.
+          </div>
+        `;
+      });
+    }
+  </script>
+</body>
+</html>

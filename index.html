@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Chance de Visto - Calcule a Chance do Seu Visto Ser Aprovado</title>
+  <meta name="description" content="Quer saber qual a chance de ter o visto americano negado? Calcule a chance do seu visto ser aprovado gratuitamente no portal Minha Chance de Visto.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230d6efd%22/><path d=%22M30,35 L70,35 M30,50 L70,50 M30,65 L55,65%22 stroke=%22white%22 stroke-width=%228%22 stroke-linecap=%22round%22/><circle cx=%2265%22 cy=%2265%22 r=%226%22 fill=%22%23198754%22/></svg>">
+  
+  <!-- Marcação estruturada para FAQPage (Google Rich Snippets) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Qual a chance de ter o visto americano negado?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A chance de ter o visto americano negado depende diretamente da comprovação de vínculos fortes com o Brasil (emprego, estudos, imóveis) e capacidade financeira. Historicamente, a taxa de aprovação para brasileiros é alta, mas a falta de planejamento ou inconsistências no formulário DS-160 podem levar à recusa sob a seção 214(b)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Visto americano negado quanto tempo para solicitar outro?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Não existe um prazo mínimo legal estabelecido após ter o visto americano negado para solicitar outro. No entanto, é altamente recomendável pedir um novo visto apenas quando a sua situação financeira ou os seus vínculos com o Brasil tiverem mudado substancialmente."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Como saber o motivo do visto negado?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O motivo do visto negado é comunicado pelo oficial consular no final da entrevista, geralmente acompanhado de uma carta explicativa padrão mencionando a recusa sob a lei de imigração 214(b) (falta de vínculos) ou 221(g) (documentação pendente)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "O que mais reprova no visto americano?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O que mais reprova no visto americano é a presunção de intenção de imigrar ilegalmente, a falta de vínculos socioeconômicos sólidos no Brasil, a renda insuficiente ou inconsistente informada no DS-160, e contradições durante a entrevista consular."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Placeholder do Cabeçalho -->
+  <div id="header-placeholder"></div>
+
+  <!-- Banner Superior AdSense -->
+  <div class="container">
+    <div style="margin: 20px 0; text-align: center; border: 1px solid var(--gray-300); border-radius: 4px; overflow: hidden; max-height: 120px;">
+      <img src="img/estatua_liberdade.png" alt="Pontos Turísticos EUA" style="width: 100%; height: 120px; object-fit: cover;">
+    </div>
+  </div>
+
+  <main class="container">
+    <!-- Seção de Abertura / Hero -->
+    <section class="py-4 text-center">
+      <h1>Minha Chance de Visto</h1>
+      <p class="lead text-muted" style="font-size: 1.2rem; margin-bottom: 0.5rem;">
+        Seja bem-vindo ao portal <strong>Minha Chance de Visto</strong>.
+      </p>
+      <p class="lead text-muted" style="font-size: 1.2rem; margin-bottom: 0.5rem;">
+        Nosso objetivo é ajudar você a compreender a praxe das embaixadas e consulados.
+      </p>
+      <p class="lead text-muted" style="font-size: 1.2rem;">
+        Descubra quais fatores aumentam a sua <strong>chance de visto americano</strong> ou de obtenção do tão sonhado <strong>Green Card</strong>.
+      </p>
+    </section>
+
+    <!-- Seção do Simulador Interativo -->
+    <section id="calculadora-container" class="my-4">
+      <div class="card">
+        <h2 class="card-title text-center mb-4">Calcule a chance do seu visto ser aprovado</h2>
+        <p class="text-muted text-center mb-4">
+          Responda às 4 perguntas fundamentais com base na praxe consular tradicional e receba o diagnóstico instantâneo.
+        </p>
+
+        <form id="visaCalcForm" onsubmit="calculateVisaChance(event)">
+          <!-- 1. Objetivo da viagem -->
+          <div class="form-group">
+            <label for="visaType" class="form-label">Qual é o objetivo principal da sua viagem?</label>
+            <select id="visaType" class="form-select" required>
+              <option value="" disabled selected>Selecione uma opção...</option>
+              <option value="turismo">Turismo ou Negócios (Visto B1/B2)</option>
+              <option value="estudante">Estudos ou Intercâmbio (Visto F1/J1)</option>
+              <option value="greencard">Residência Permanente (Green Card - Imigração)</option>
+            </select>
+          </div>
+
+          <!-- 2. Vínculos socioeconômicos -->
+          <div class="form-group">
+            <label for="vincSocio" class="form-label">Como são os seus vínculos socioeconômicos com o Brasil?</label>
+            <select id="vincSocio" class="form-select" required>
+              <option value="" disabled selected>Selecione uma opção...</option>
+              <option value="estaveis">Múltiplos vínculos estáveis (emprego fixo há mais de 1 ano e/ou bens imóveis registrados)</option>
+              <option value="moderados">Vínculos moderados (apenas emprego estável ou apenas cursando faculdade/estudo regular)</option>
+              <option value="poucos">Poucos ou nenhum vínculo estável (desempregado ou sem bens, trabalho informal recente)</option>
+            </select>
+          </div>
+
+          <!-- 3. Capacidade financeira -->
+          <div class="form-group">
+            <label for="capFinanceira" class="form-label">Qual é a sua capacidade financeira para custear a viagem?</label>
+            <select id="capFinanceira" class="form-select" required>
+              <option value="" disabled selected>Selecione uma opção...</option>
+              <option value="excelente">Excelente (renda comprovada compatível com padrão americano e reserva financeira sólida)</option>
+              <option value="moderada">Moderada (comprova o básico para cobrir a permanência e as passagens sem luxo)</option>
+              <option value="limitada">Limitada (dependência de patrocinadores terceiros ou recursos financeiros reduzidos)</option>
+            </select>
+          </div>
+
+          <!-- 4. Histórico migratório -->
+          <div class="form-group">
+            <label for="histMigratorio" class="form-label">Qual é o seu histórico migratório internacional?</label>
+            <select id="histMigratorio" class="form-select" required>
+              <option value="" disabled selected>Selecione uma opção...</option>
+              <option value="positivo">Positivo (viagens anteriores recentes para países desenvolvidos, retornando no prazo)</option>
+              <option value="neutro">Neutro (passaporte limpo, primeira viagem ao exterior)</option>
+              <option value="critico">Crítico (histórico de visto americano negado anteriormente ou problemas de imigração)</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block py-3 mt-3">Calcular Chance de Visto Americano</button>
+        </form>
+
+        <!-- Link explicativo da pontuação com ícone -->
+        <p class="text-center mt-3" style="margin-top: 15px; text-align: center;">
+          <a href="perguntas-respostas.html#como-funciona-o-calculo" style="text-decoration: underline; font-size: 0.9rem; color: var(--primary); display: inline-flex; align-items: center; gap: 5px; font-weight: 600;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16" style="vertical-align: middle;">
+              <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
+            </svg>
+            Como é feito o cálculo da probabilidade? Entenda a pontuação detalhada.
+          </a>
+        </p>
+
+        <!-- Espaço de resultado -->
+        <div id="resultadoCalculo" class="mt-4" style="display: none;">
+          <!-- Será preenchido via JavaScript -->
+        </div>
+
+        <!-- RN04: Espaço de resultado AdSense imediatamente abaixo do botão/resultado -->
+        <div style="margin-top: 20px; text-align: center; border: 1px solid var(--gray-300); border-radius: 4px; overflow: hidden; max-height: 200px;">
+          <img src="img/times_square.png" alt="Times Square New York" style="width: 100%; height: 200px; object-fit: cover;">
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Educativa: Como Conseguir o Visto -->
+    <section id="como-conseguir" class="py-4">
+      <h2>Visto Americano: Como Tirar e Como Funciona o Processo</h2>
+      <p>
+        Entender o <strong>visto americano como funciona</strong> é o primeiro passo para o sucesso da sua viagem.
+      </p>
+      <p>
+        O processo envolve preencher com extrema precisão o formulário online DS-160, efetuar o pagamento da taxa consular e agendar a coleta de biometria e entrevista de visto nos locais oficiais.
+      </p>
+
+      <div class="row mt-4">
+        <div class="col-12 col-md-6 mb-4">
+          <div class="card h-100">
+            <h3>Visto Americano: Como Solicitar e Como Agendar</h3>
+            <p>
+              Para saber sobre o <strong>visto americano como solicitar</strong> e o <strong>visto americano como agendar</strong>, você deve seguir um passo a passo estruturado para evitar erros comuns que causam recusas consulares imediatas:
+            </p>
+            <ul>
+              <li><strong>Preenchimento do formulário DS-160:</strong> Insira informações fiéis sobre seu trabalho, renda e objetivos de viagem.</li>
+              <li><strong>Pagamento:</strong> Entenda o <strong>visto americano como pagar a taxa</strong> MRV pelo boleto ou cartão de crédito no portal de agendamentos.</li>
+              <li><strong>Agendamento:</strong> Escolha a data de comparecimento ao Centro de Atendimento ao Solicitante de Visto (CASV) para coleta de biometria e, posteriormente, a entrevista na embaixada ou consulado selecionado.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-4">
+          <div class="card h-100">
+            <h3>Caminhos para Imigração e o Green Card</h3>
+            <p>
+              Se o seu objetivo é morar nos EUA permanentemente através do <strong>Green Card</strong>, o nível de exigência de vínculos inverte-se.
+            </p>
+            <p>
+              A avaliação foca na sua capacidade de contribuir profissionalmente, seja por petições de trabalho (EB-1, EB-2 NIW, EB-3) ou por laços familiares legítimos com cidadãos americanos.
+            </p>
+            <p>
+              Tome nota de que solicitações de visto de não-imigrante (como turismo B1/B2) com forte intenção oculta de imigração são a causa principal para ter seu pedido reprovado sumariamente.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Espaço Lateral / In-feed AdSense -->
+    <div style="margin: 20px 0; text-align: center; border: 1px solid var(--gray-300); border-radius: 4px; overflow: hidden; max-height: 150px;">
+      <img src="img/golden_gate.png" alt="Viagem EUA - Golden Gate" style="width: 100%; height: 150px; object-fit: cover;">
+    </div>
+
+    <!-- Seção Utilitária: Dicas de Entrevista e Consulados -->
+    <section id="dicas-consulados" class="py-4">
+      <h2>Visto Americano: Como Ser Aprovado e Onde ir</h2>
+      <p>
+        Para saber sobre o <strong>visto americano como ser aprovado</strong>, adote as seguintes práticas no dia da sua entrevista: seja objetivo, mantenha a calma e apresente apenas os documentos que forem especificamente solicitados pelo oficial consular.
+      </p>
+
+      <div class="card my-4">
+        <h3>Endereços Oficiais de Repartições Diplomáticas no Brasil</h3>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Repartição</th>
+                <th>Endereço</th>
+                <th>Cidade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Embaixada dos EUA em Brasília</strong></td>
+                <td>SES - Av. das Nações, Quadra 801, Lote 03</td>
+                <td>Brasília/DF</td>
+              </tr>
+              <tr>
+                <td><strong>Consulado Geral em São Paulo</strong></td>
+                <td>Rua Henri Dunant, 500 - Chácara Santo Antônio</td>
+                <td>São Paulo/SP</td>
+              </tr>
+              <tr>
+                <td><strong>Consulado Geral no Rio de Janeiro</strong></td>
+                <td>Av. Presidente Wilson, 147 - Castelo</td>
+                <td>Rio de Janeiro/RJ</td>
+              </tr>
+              <tr>
+                <td><strong>Consulado Geral em Recife</strong></td>
+                <td>Rua Gonçalves Maia, 163 - Boa Vista</td>
+                <td>Recife/PE</td>
+              </tr>
+              <tr>
+                <td><strong>Consulado Geral em Engenho</strong></td>
+                <td>Av. Assis Brasil, 1889 - Passo d'Areia</td>
+                <td>Porto Alegre/RS</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Placeholder do Rodapé -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Inclusões em JavaScript sem problemas de CORS -->
+  <script src="js/header.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/cookie-consent.js"></script>
+  <script src="js/includes.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

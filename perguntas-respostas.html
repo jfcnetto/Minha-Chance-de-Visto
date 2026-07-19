@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perguntas Frequentes - Minha Chance de Visto</title>
+  <meta name="description" content="Tire suas dúvidas sobre o visto americano, entenda como o algoritmo calcula suas chances de aprovação e veja as respostas para as perguntas mais comuns.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230d6efd%22/><path d=%22M30,35 L70,35 M30,50 L70,50 M30,65 L55,65%22 stroke=%22white%22 stroke-width=%228%22 stroke-linecap=%22round%22/><circle cx=%2265%22 cy=%2265%22 r=%226%22 fill=%22%23198754%22/></svg>">
+  
+  <!-- Marcação estruturada para FAQPage (Google Rich Snippets) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Como funciona o cálculo de chances do simulador?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O cálculo baseia-se em pesos atribuídos a três fatores: vínculos (V, até 40 pts), capacidade financeira (F, até 30 pts) e histórico migratório (H, até 30 pts). Para solicitações de Green Card, aplica-se uma redução de 15% na pontuação bruta (multiplicador de 0.85). O score mínimo exibido é de 10%."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Qual a chance de ter o visto americano negado?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A chance de ter o visto americano negado depende diretamente da comprovação de vínculos fortes com o Brasil (emprego, estudos, imóveis) e capacidade financeira. Historicamente, a taxa de aprovação para brasileiros é alta, mas a falta de planejamento ou inconsistências no formulário DS-160 podem levar à recusa sob a seção 214(b)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Visto americano negado quanto tempo para solicitar outro?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Não existe um prazo mínimo legal estabelecido após ter o visto americano negado para solicitar outro. No entanto, é altamente recomendável pedir um novo visto apenas quando a sua situação financeira ou os seus vínculos com o Brasil tiverem mudado substancialmente."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Como saber o motivo do visto negado?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O motivo do visto negado é comunicado pelo oficial consular no final da entrevista, geralmente acompanhado de uma carta explicativa padrão mencionando a recusa sob a lei de imigração 214(b) (falta de vínculos) ou 221(g) (documentação pendente)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "O que mais reprova no visto americano?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O que mais reprova no visto americano é a presunção de intenção de imigrar ilegalmente, a falta de vínculos socioeconômicos sólidos no Brasil, a renda insuficiente ou inconsistente informada no DS-160, e contradições durante a entrevista consular."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Placeholder do Cabeçalho -->
+  <div id="header-placeholder"></div>
+
+  <!-- Foto Turística no Topo (Times Square) -->
+  <div class="container mb-4">
+    <img src="img/times_square.png" alt="Times Square New York" style="width: 100%; max-height: 200px; object-fit: cover; border-radius: 4px; border: 1px solid var(--gray-300);">
+  </div>
+
+  <main class="container py-4">
+    <!-- Explicação do Cálculo (PRIMEIRO ITEM) -->
+    <section id="como-funciona-o-calculo" class="card mb-4">
+      <h1 class="card-title">Como é feito o cálculo da probabilidade de visto?</h1>
+      <p class="lead">
+        Nosso simulador utiliza uma fórmula estatística baseada na praxe consular tradicional e nos critérios de avaliação da seção 214(b) do Ato de Imigração e Nacionalidade dos EUA.
+      </p>
+      
+      <p>
+        A pontuação final é dada pela equação: <strong>Score Final (S) = (Vínculos + Financeiro + Histórico) × Tipo de Solicitação</strong>.
+      </p>
+
+      <h2 class="mt-4">Entenda a distribuição de pontos:</h2>
+      <div class="table-responsive my-3">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Critério</th>
+              <th>Status do Perfil</th>
+              <th>Pontuação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="3"><strong>Vínculos Socioeconômicos (V)</strong></td>
+              <td>Múltiplos vínculos estáveis (trabalho CLT estável, faculdade em andamento, bens registrados)</td>
+              <td><strong>+40 pontos</strong></td>
+            </tr>
+            <tr>
+              <td>Vínculos moderados (apenas emprego formal recente ou apenas matriculado em curso regular)</td>
+              <td><strong>+20 pontos</strong></td>
+            </tr>
+            <tr>
+              <td>Poucos ou nenhum vínculo estável (trabalho informal sem registro, desempregado)</td>
+              <td><strong>+5 pontos</strong></td>
+            </tr>
+            <tr>
+              <td rowspan="3"><strong>Capacidade Financeira (F)</strong></td>
+              <td>Excelente (renda comprovada compatível com gastos nos EUA e reservas financeiras sólidas)</td>
+              <td><strong>+30 pontos</strong></td>
+            </tr>
+            <tr>
+              <td>Moderada (comprova fundos básicos para cobrir passagens e estada curta sem luxo)</td>
+              <td><strong>+15 pontos</strong></td>
+            </tr>
+            <tr>
+              <td>Limitada (dependência financeira de terceiros informais ou recursos muito justos)</td>
+              <td><strong>+0 pontos</strong></td>
+            </tr>
+            <tr>
+              <td rowspan="3"><strong>Histórico Migratório (H)</strong></td>
+              <td>Positivo (histórico de viagens recentes para países desenvolvidos, retornando rigorosamente no prazo)</td>
+              <td><strong>+30 pontos</strong></td>
+            </tr>
+            <tr>
+              <td>Neutro (passaporte limpo, primeira viagem internacional)</td>
+              <td><strong>+15 pontos</strong></td>
+            </tr>
+            <tr>
+              <td>Crítico (histórico de visto americano negado anteriormente ou problemas na fronteira)</td>
+              <td><strong>-20 pontos</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="mt-4">Fator de Ajuste de Tipo de Solicitação</h2>
+      <p>
+        Solicitações de visto de turismo B1/B2 ou de estudante F1/J1 mantêm a pontuação integral (fator 1.0).
+      </p>
+      <p>
+        Solicitações com simulação de <strong>Green Card</strong> passam por uma redução de 15% na pontuação bruta (multiplicador de <strong>0.85</strong>), em virtude do rigor extremo e complexidade das categorias imigratórias.
+      </p>
+
+      <h2 class="mt-3">Faixas de Resultados Finais</h2>
+      <ul>
+        <li><strong>Chance Alta (Score ≥ 70):</strong> Perfil com fortes indicadores de aprovação.</li>
+        <li><strong>Chance Moderada (40 ≤ Score < 70):</strong> Boas condições, com pequenos pontos de atenção.</li>
+        <li><strong>Atenção Requerida (Score < 40):</strong> Alta probabilidade de recusa se aplicado às pressas; necessita de reestruturação de vínculos.</li>
+      </ul>
+      <p class="mt-2 text-muted">
+        *Nota: O algoritmo aplica a função Math.max(10, score), garantindo que o resultado nunca exiba uma probabilidade menor do que 10%, preservando a utilidade pedagógica.
+      </p>
+    </section>
+
+    <!-- Perguntas Frequentes / FAQ -->
+    <section id="faq-section" class="py-4">
+      <h2>Perguntas Frequentes sobre Visto Americano e Green Card</h2>
+      <p class="text-muted">Clique sobre cada pergunta para expandir e ler as respostas e detalhes.</p>
+
+      <div class="faq-container">
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(event)">
+            Qual a chance de ter o visto americano negado?
+          </div>
+          <div class="faq-answer">
+            <p>
+              A resposta para <strong>qual a chance de ter o visto americano negado</strong> varia dependendo do perfil do aplicante.
+            </p>
+            <p>
+              Em linhas gerais, se você possui vínculos sólidos (como emprego fixo, estudos e imóveis) e comprova capacidade financeira, as chances de recusa são baixas.
+            </p>
+            <p>
+              Contudo, qualquer sinal de intenção migratória sob o artigo 214(b) pode resultar em negativa.
+            </p>
+            <div style="margin: 10px 0; text-align: center; border-radius: 4px; overflow: hidden; max-height: 120px; border: 1px solid var(--gray-300);">
+              <img src="img/golden_gate.png" alt="Turismo EUA - Golden Gate" style="width: 100%; height: 120px; object-fit: cover;">
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(event)">
+            Visto americano negado quanto tempo para solicitar outro?
+          </div>
+          <div class="faq-answer">
+            <p>
+              Se você teve o seu <strong>visto americano negado quanto tempo para solicitar outro</strong>?
+            </p>
+            <p>
+              Não existe prazo legal obrigatório estabelecido em lei para efetuar um novo pedido. Você pode aplicar novamente a qualquer momento, pagando uma nova taxa.
+            </p>
+            <p>
+              No entanto, é recomendado pedir outro visto apenas quando conseguir comprovar mudanças reais de laços e condições socioeconômicas no Brasil.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(event)">
+            Como saber o motivo do visto negado?
+          </div>
+          <div class="faq-answer">
+            <p>
+              Muitos se perguntam <strong>como saber o motivo do visto negado</strong>.
+            </p>
+            <p>
+              O cônsul americano costuma informar oralmente o motivo no ato da recusa e entrega uma carta impressa com o código da lei (na grande maioria, o artigo 214b, indicando falta de laços fortes com o Brasil ou incapacidade de demonstrar que retornará).
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(event)">
+            O que mais reprova no visto?
+          </div>
+          <div class="faq-answer">
+            <p>
+              Se você quer entender <strong>O que mais reprova no visto?</strong> ou <strong>O que faz seu visto ser negado?</strong>, a resposta é a falta de vínculos.
+            </p>
+            <p>
+              Mentiras no formulário DS-160, inconsistência financeira em relação ao custo da viagem e passaportes sem nenhum histórico de viagens internacionais anteriores também pesam negativamente.
+            </p>
+            <div style="margin: 10px 0; text-align: center; border-radius: 4px; overflow: hidden; max-height: 120px; border: 1px solid var(--gray-300);">
+              <img src="img/estatua_liberdade.png" alt="Viagem EUA - Estátua da Liberdade" style="width: 100%; height: 120px; object-fit: cover;">
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(event)">
+            É possível reverter um visto negado?
+          </div>
+          <div class="faq-answer">
+            <p>
+              Sobre se <strong>É possível reverter um visto negado?</strong>, a resposta é: não há recurso ou apelação administrativa imediata para decisões do visto de turismo.
+            </p>
+            <p>
+              O caminho legal é corrigir os pontos fracos apontados e solicitar uma nova entrevista consular.
+            </p>
+            <h3>O que colocar na justificativa de visto negado?</h3>
+            <p>
+              Ao realizar a nova tentativa, você deve preencher o formulário explicando os motivos da recusa anterior de forma honesta.
+            </p>
+            <p>
+              Deixe claro quais aspectos mudaram na sua vida profissional ou pessoal desde a última entrevista.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(event)">
+            Visto americano como tirar e qual o valor da taxa?
+          </div>
+          <div class="faq-answer">
+            <p>
+              Para o processo de <strong>visto americano como tirar</strong>, você precisará preencher o DS-160 e pagar a taxa MRV.
+            </p>
+            <p>
+              Quanto ao <strong>visto americano como tirar valor</strong>, a taxa oficial para vistos de turismo e negócios (B1/B2) e de estudante (F1/J1) é atualmente de $185 USD, paga em reais de acordo com o câmbio consular do dia.
+            </p>
+            <h3>Visto americano como renovar</h3>
+            <p>
+              Para saber sobre o <strong>visto americano como renovar</strong>, saiba que vistos vencidos há menos de 48 meses muitas vezes são elegíveis para renovação sem necessidade de passar por uma nova entrevista presencial.
+            </p>
+            <p>
+              Geralmente, necessita-se apenas da entrega física de documentos no CASV.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 7 -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(event)">
+            Visto americano aprovado: e agora?
+          </div>
+          <div class="faq-answer">
+            <p>
+              Com o seu <strong>visto americano aprovado</strong>, você deve aguardar a emissão física. Quanto à dúvida de <strong>visto americano aprovado quanto tempo demora</strong>, normalmente o passaporte é entregue na sua residência ou fica disponível para retirada no CASV dentro de 2 a 15 dias úteis.
+            </p>
+            <h3>Visto americano aprovado e depois negado (É possível?)</h3>
+            <p>
+              Sim, em casos extremamente raros de descoberta de fraudes ou problemas graves identificados antes da emissão, o visto pode ser retido ou cancelado pelo consulado mesmo após a aprovação verbal.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 8 -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(event)">
+            O visto americano é aprovado na hora?
+          </div>
+          <div class="faq-answer">
+            <p>
+              Sim, o <strong>visto americano é aprovado na hora</strong> da entrevista verbal de maneira preliminar. O cônsul informará se a solicitação foi aprovada ou recusada. Para ter certeza de <strong>visto americano como saber se foi aprovado</strong> e acompanhar o status oficial, basta consultar a situação no site oficial CEAC do Departamento de Estado com o código do formulário DS-160.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Placeholder do Rodapé -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Inclusões em JavaScript sem problemas de CORS -->
+  <script src="js/header.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/cookie-consent.js"></script>
+  <script src="js/includes.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
