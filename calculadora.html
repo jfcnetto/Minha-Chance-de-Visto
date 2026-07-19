@@ -27,73 +27,160 @@
   </div>
 
   <main class="container py-4">
-    <div class="card">
-      <h1 class="card-title text-center mb-4">Calcule a chance do seu visto ser aprovado</h1>
-      <p class="text-muted text-center mb-4">
-        Responda às 4 perguntas fundamentais com base na lei de imigração americana (presunção de intenção de imigrar) e receba um diagnóstico detalhado.
-      </p>
+    <div class="card" id="calcWrapper">
+      <!-- Barra de abas (RN05) -->
+      <div class="calc-tabs">
+        <button type="button" class="calc-tab-btn active" id="btn-tab-visto" onclick="switchTab('tab-visto', 'calcWrapper')">Chance de Visto</button>
+        <button type="button" class="calc-tab-btn" id="btn-tab-greencard" onclick="switchTab('tab-greencard', 'calcWrapper')">Chance de Green Card</button>
+      </div>
 
-      <form id="visaCalcForm" onsubmit="calculateVisaChance(event)">
-        <!-- 1. Objetivo da viagem -->
-        <div class="form-group">
-          <label for="visaType" class="form-label">Qual é o objetivo principal da sua viagem?</label>
-          <select id="visaType" class="form-select" required>
-            <option value="" disabled selected>Selecione uma opção...</option>
-            <option value="turismo">Turismo ou Negócios (Visto B1/B2)</option>
-            <option value="estudante">Estudos ou Intercâmbio (Visto F1/J1)</option>
-            <option value="greencard">Residência Permanente (Green Card - Imigração)</option>
-          </select>
+      <!-- Painel da Aba 1: Chance de Visto -->
+      <div class="calc-tab-panel active" id="tab-visto">
+        <h1 class="card-title text-center mb-4" style="font-size: 1.8rem;">Calcule a chance do seu visto ser aprovado</h1>
+        <p class="text-muted text-center mb-4">
+          Responda às 4 perguntas fundamentais com base na lei de imigração americana (presunção de intenção de imigrar) e receba um diagnóstico detalhado.
+        </p>
+
+        <form id="visaCalcForm" onsubmit="calculateVisaChance(event)">
+          <!-- 1. Objetivo da viagem -->
+          <div class="form-group">
+            <label for="visaType" class="form-label">Qual é o objetivo principal da sua viagem?</label>
+            <select id="visaType" class="form-select" required>
+              <option value="" disabled selected>Selecione uma opção...</option>
+              <option value="turismo">Turismo ou Negócios (Visto B1/B2)</option>
+              <option value="estudante">Estudos ou Intercâmbio (Visto F1/J1)</option>
+              <option value="greencard">Residência Permanente (Green Card - Imigração)</option>
+            </select>
+          </div>
+
+          <!-- 2. Vínculos socioeconômicos -->
+          <div class="form-group">
+            <label for="vincSocio" class="form-label">Como são os seus vínculos socioeconômicos com o Brasil?</label>
+            <select id="vincSocio" class="form-select" required>
+              <option value="" disabled selected>Selecione uma opção...</option>
+              <option value="estaveis">Múltiplos vínculos estáveis (emprego fixo há mais de 1 ano e/ou bens imóveis registrados)</option>
+              <option value="moderados">Vínculos moderados (apenas emprego estável ou apenas cursando faculdade/estudo regular)</option>
+              <option value="poucos">Poucos ou nenhum vínculo estável (desempregado ou sem bens, trabalho informal recente)</option>
+            </select>
+          </div>
+
+          <!-- 3. Capacidade financeira -->
+          <div class="form-group">
+            <label for="capFinanceira" class="form-label">Qual é a sua capacidade financeira para custear a viagem?</label>
+            <select id="capFinanceira" class="form-select" required>
+              <option value="" disabled selected>Selecione uma opção...</option>
+              <option value="excelente">Excelente (renda comprovada compatível com padrão americano e reserva financeira sólida)</option>
+              <option value="moderada">Moderada (comprova o básico para cobrir a permanência e as passagens sem luxo)</option>
+              <option value="limitada">Limitada (dependência de patrocinadores terceiros ou recursos financeiros reduzidos)</option>
+            </select>
+          </div>
+
+          <!-- 4. Histórico migratório -->
+          <div class="form-group">
+            <label for="histMigratorio" class="form-label">Qual é o seu histórico migratório internacional?</label>
+            <select id="histMigratorio" class="form-select" required>
+              <option value="" disabled selected>Selecione uma opção...</option>
+              <option value="positivo">Positivo (viagens anteriores recentes para países desenvolvidos, retornando no prazo)</option>
+              <option value="neutro">Neutro (passaporte limpo, primeira viagem ao exterior)</option>
+              <option value="critico">Crítico (histórico de visto americano negado anteriormente ou problemas de imigração)</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block py-3 mt-3">Calcular Chance de Visto Americano</button>
+        </form>
+
+        <!-- Link explicativo da pontuação com ícone -->
+        <p class="text-center mt-3" style="margin-top: 15px; text-align: center;">
+          <a href="perguntas-respostas.html#como-funciona-o-calculo" style="text-decoration: underline; font-size: 0.9rem; color: var(--primary); display: inline-flex; align-items: center; gap: 5px; font-weight: 600;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16" style="vertical-align: middle;">
+              <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
+            </svg>
+            Como é feito o cálculo da probabilidade? Entenda a pontuação detalhada.
+          </a>
+        </p>
+
+        <!-- Espaço de resultado -->
+        <div id="resultadoCalculo" class="resultadoCalculo mt-4" style="display: none;">
+          <!-- Será preenchido via JavaScript -->
         </div>
+      </div>
 
-        <!-- 2. Vínculos socioeconômicos -->
-        <div class="form-group">
-          <label for="vincSocio" class="form-label">Como são os seus vínculos socioeconômicos com o Brasil?</label>
-          <select id="vincSocio" class="form-select" required>
-            <option value="" disabled selected>Selecione uma opção...</option>
-            <option value="estaveis">Múltiplos vínculos estáveis (emprego fixo há mais de 1 ano e/ou bens imóveis registrados)</option>
-            <option value="moderados">Vínculos moderados (apenas emprego estável ou apenas cursando faculdade/estudo regular)</option>
-            <option value="poucos">Poucos ou nenhum vínculo estável (desempregado ou sem bens, trabalho informal recente)</option>
-          </select>
+      <!-- Painel da Aba 2: Chance de Green Card (Novo) -->
+      <div class="calc-tab-panel" id="tab-greencard">
+        <h1 class="card-title text-center mb-4" style="color: var(--success); font-size: 1.8rem;">Calcule sua chance de Green Card</h1>
+        <p class="text-muted text-center mb-4">
+          Avalie o seu perfil de residência permanente baseado nas principais vias de imigração americana (Trabalho, Família, Investimento e Loteria).
+        </p>
+
+        <form id="gcCalcForm" onsubmit="calculateGreenCardChance(event)">
+          <!-- 1. Categoria/via pretendida -->
+          <div class="form-group">
+            <label for="gcCategoria" class="form-label">Qual é a via de imigração pretendida para o Green Card?</label>
+            <select id="gcCategoria" class="form-select" onchange="handleGcCategoryChange(this)" required>
+              <option value="" disabled selected>Selecione uma opção...</option>
+              <option value="casamento_cidadao">Cônjuge de cidadão(ã) americano(a) (CR1/IR1)</option>
+              <option value="parentesco_direto">Pai/mãe ou filho(a) solteiro(a) < 21 anos de cidadão(ã) americano(a)</option>
+              <option value="eb1">Trabalho - EB-1 (Habilidade extraordinária / Executivo multinacional)</option>
+              <option value="eb2">Trabalho - EB-2 (Mestrado/Doutorado ou NIW - Dispensa Nacional de Interesse)</option>
+              <option value="eb3">Trabalho - EB-3 (Profissional/Trabalhador qualificado ou outros)</option>
+              <option value="eb5">Investimento - EB-5</option>
+              <option value="casamento_residente">Cônjuge de residente permanente (F2A)</option>
+              <option value="asilo">Asilo ou Refúgio</option>
+              <option value="loteria">Loteria de Vistos (Diversity Visa)</option>
+              <option value="parentesco_indireto">Irmão(ã) ou filho(a) casado(a) de cidadão(ã) americano(a) (F3/F4)</option>
+            </select>
+          </div>
+
+          <!-- Campo Condicional: País de nascimento do cônjuge/pais (RN06) -->
+          <div class="form-group gc-pais-excecao-container" style="display: none;">
+            <label for="gcPaisExcecao" class="form-label">Qual é o país de nascimento do seu cônjuge, pai ou mãe?</label>
+            <select id="gcPaisExcecao" class="form-select">
+              <option value="" disabled selected>Selecione uma opção...</option>
+              <option value="inelegivel">Brasil (Não elegível atualmente)</option>
+              <option value="elegivel">Outro país elegível (Portugal, Japão, Angola, etc.)</option>
+            </select>
+          </div>
+
+          <!-- 2. Força da documentação/qualificação -->
+          <div class="form-group">
+            <label for="gcQualificacao" class="form-label">Qual é a força das suas qualificações ou documentos de suporte?</label>
+            <select id="gcQualificacao" class="form-select" required>
+              <option value="" disabled selected>Selecione uma opção...</option>
+              <option value="robusta">Robusta (ex.: união estável/casamento com muitas provas de convivência; doutorado/mestrado e anos de experiência; investimento já comprovado)</option>
+              <option value="moderada">Moderada (relação recente mas legítima; bacharelado com experiência intermediária)</option>
+              <option value="fragil">Frágil ou incompleta (sem diplomas avançados, pouca experiência profissional ou poucas provas de relacionamento)</option>
+            </select>
+          </div>
+
+          <!-- 3. Situação migratória atual -->
+          <div class="form-group">
+            <label for="gcSituacao" class="form-label">Qual é a sua situação migratória atual?</label>
+            <select id="gcSituacao" class="form-select" required>
+              <option value="" disabled selected>Selecione uma opção...</option>
+              <option value="consular">Fora dos EUA, com processamento a ser feito via Consulado no Brasil</option>
+              <option value="ajuste">Dentro dos EUA, com status legal válido (elegível para Ajuste de Status)</option>
+              <option value="nunca">Nunca viajou para os EUA (Processamento consular padrão)</option>
+              <option value="irregular">Dentro dos EUA em situação irregular (overstay ou entrada sem visto)</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-success btn-block py-3 mt-3" style="background-color: var(--success); border-color: var(--success);">Calcular Chance de Green Card</button>
+        </form>
+
+        <!-- Link explicativo da pontuação do Green Card -->
+        <p class="text-center mt-3" style="margin-top: 15px; text-align: center;">
+          <a href="perguntas-respostas.html#como-funciona-o-calculo-green-card" style="text-decoration: underline; font-size: 0.9rem; color: var(--success); display: inline-flex; align-items: center; gap: 5px; font-weight: 600;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16" style="vertical-align: middle;">
+              <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
+            </svg>
+            Como é feito o cálculo do Green Card? Entenda as chances e critérios de fila.
+          </a>
+        </p>
+
+        <!-- Espaço de resultado Green Card -->
+        <div class="resultadoCalculoGc mt-4" style="display: none;">
+          <!-- Será preenchido via JavaScript -->
         </div>
-
-        <!-- 3. Capacidade financeira -->
-        <div class="form-group">
-          <label for="capFinanceira" class="form-label">Qual é a sua capacidade financeira para custear a viagem?</label>
-          <select id="capFinanceira" class="form-select" required>
-            <option value="" disabled selected>Selecione uma opção...</option>
-            <option value="excelente">Excelente (renda comprovada compatível com padrão americano e reserva financeira sólida)</option>
-            <option value="moderada">Moderada (comprova o básico para cobrir a permanência e as passagens sem luxo)</option>
-            <option value="limitada">Limitada (dependência de patrocinadores terceiros ou recursos financeiros reduzidos)</option>
-          </select>
-        </div>
-
-        <!-- 4. Histórico migratório -->
-        <div class="form-group">
-          <label for="histMigratorio" class="form-label">Qual é o seu histórico migratório internacional?</label>
-          <select id="histMigratorio" class="form-select" required>
-            <option value="" disabled selected>Selecione uma opção...</option>
-            <option value="positivo">Positivo (viagens anteriores recentes para países desenvolvidos, retornando no prazo)</option>
-            <option value="neutro">Neutro (passaporte limpo, primeira viagem ao exterior)</option>
-            <option value="critico">Crítico (histórico de visto americano negado anteriormente ou problemas de imigração)</option>
-          </select>
-        </div>
-
-        <button type="submit" class="btn btn-primary btn-block py-3 mt-3">Calcular Chance de Visto Americano</button>
-      </form>
-
-      <!-- Link explicativo da pontuação com ícone -->
-      <p class="text-center mt-3" style="margin-top: 15px; text-align: center;">
-        <a href="perguntas-respostas.html#como-funciona-o-calculo" style="text-decoration: underline; font-size: 0.9rem; color: var(--primary); display: inline-flex; align-items: center; gap: 5px; font-weight: 600;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16" style="vertical-align: middle;">
-            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
-          </svg>
-          Como é feito o cálculo da probabilidade? Entenda a pontuação detalhada.
-        </a>
-      </p>
-
-      <!-- Espaço de resultado -->
-      <div id="resultadoCalculo" class="mt-4" style="display: none;">
-        <!-- Será preenchido via JavaScript -->
       </div>
 
       <!-- RN04: Espaço de resultado AdSense imediatamente abaixo do botão/resultado -->

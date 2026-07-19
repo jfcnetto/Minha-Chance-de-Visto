@@ -458,3 +458,62 @@ footer {
   }
 }
 
+/* Interface de Abas da Calculadora */
+.calc-tabs {
+  display: flex;
+  border-bottom: 2px solid var(--gray-300);
+  margin-bottom: 1.5rem;
+  border-radius: 0.375rem 0.375rem 0 0;
+  overflow: hidden;
+  background-color: var(--gray-200);
+}
+
+.calc-tab-btn {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--gray-600);
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  text-align: center;
+}
+
+.calc-tab-btn:hover {
+  background-color: rgba(13, 110, 253, 0.05);
+  color: var(--primary);
+}
+
+.calc-tab-btn.active {
+  background-color: var(--white);
+  color: var(--primary);
+  border-bottom: 3px solid var(--primary);
+}
+
+.calc-tab-btn.active.gc-tab-active {
+  color: var(--success);
+  border-bottom: 3px solid var(--success);
+}
+
+.calc-tab-panel {
+  display: none;
+}
+
+.calc-tab-panel.active {
+  display: block;
+}
+
+/* Utilitários Temáticos Green Card */
+.border-success-top {
+  border-top: 4px solid var(--success) !important;
+}
+
+.bg-success-light {
+  background-color: #e8f5e9;
+  border-color: #c8e6c9;
+}
+
+

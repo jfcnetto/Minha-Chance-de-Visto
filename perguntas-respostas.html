@@ -22,10 +22,10 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Como funciona o cálculo de chances do simulador?",
+        "name": "Como funciona o cálculo de chances do visto?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "O cálculo baseia-se em pesos atribuídos a três fatores: vínculos (V, até 40 pts), capacidade financeira (F, até 30 pts) e histórico migratório (H, até 30 pts). Para solicitações de Green Card, aplica-se uma redução de 15% na pontuação bruta (multiplicador de 0.85). O score mínimo exibido é de 10%."
+          "text": "O cálculo baseia-se em pesos atribuídos a três fatores: vínculos (V, até 40 pts), capacidade financeira (F, até 30 pts) e histórico migratório (H, até 30 pts). O score mínimo exibido é de 10%."
         }
       },
       {
@@ -46,18 +46,26 @@
       },
       {
         "@type": "Question",
-        "name": "Como saber o motivo do visto negado?",
+        "name": "Como conseguir o green card?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "O motivo do visto negado é comunicado pelo oficial consular no final da entrevista, geralmente acompanhado de uma carta explicativa padrão mencionando a recusa sob a lei de imigração 214(b) (falta de vínculos) ou 221(g) (documentação pendente)."
+          "text": "O Green Card pode ser obtido por meio de laços familiares (casamento com cidadão americano ou residente), trabalho/emprego (EB-1, EB-2, EB-3), investimento (EB-5), asilo político ou refúgio, e a loteria de vistos (Diversity Visa) para países elegíveis."
         }
       },
       {
         "@type": "Question",
-        "name": "O que mais reprova no visto americano?",
+        "name": "Brasileiro pode participar da loteria do green card?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "O que mais reprova no visto americano é a presunção de intenção de imigrar ilegalmente, a falta de vínculos socioeconômicos sólidos no Brasil, a renda insuficiente ou inconsistente informada no DS-160, e contradições durante a entrevista consular."
+          "text": "O Brasil não é elegível para a Loteria do Green Card atualmente. A única exceção é se o solicitante possuir cônjuge ou pai/mãe que tenha nascido em um país participante da loteria."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quanto tempo demora para sair o green card?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O tempo varia de acordo com a categoria. Vias de casamento/parentesco direto com cidadão demoram de 12 a 18 meses, vistos EB-2 NIW e EB-3 demoram de 2 a 5 anos devido às filas de cota do boletim de vistos (Visa Bulletin)."
         }
       }
     ]
@@ -159,13 +167,112 @@
       </p>
     </section>
 
+    <!-- Explicação do Cálculo do Green Card (Novo) -->
+    <section id="como-funciona-o-calculo-green-card" class="card mb-4 border-success-top">
+      <h1 class="card-title" style="color: var(--success);">Como é feito o cálculo da probabilidade de Green Card?</h1>
+      <p class="lead">
+        Nosso simulador de residência permanente avalia a viabilidade do pleito com base nos critérios estabelecidos pelo USCIS e no tempo de fila das cotas por país (Visa Bulletin).
+      </p>
+      
+      <p>
+        A pontuação final é dada pela equação: <strong>Score Final (S) = (Categoria + Qualificação + Situação Migratória) × Ajuste de Prioridade (Ap)</strong>.
+      </p>
+
+      <h2 class="mt-4">Pesos atribuídos a cada critério:</h2>
+      <div class="table-responsive my-3">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Critério</th>
+              <th>Status do Perfil</th>
+              <th>Pontuação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="9"><strong>Categoria de Imigração (C)</strong></td>
+              <td>Cônjuge, pai/mãe ou filho(a) solteiro menor de 21 anos de cidadão americano</td>
+              <td><strong>+45 pontos</strong></td>
+            </tr>
+            <tr>
+              <td>Emprego — EB-1 (Habilidade extraordinária, executivo multinacional)</td>
+              <td><strong>+35 pontos</strong></td>
+            </tr>
+            <tr>
+              <td>Emprego — EB-2 (Mestrado/Doutorado ou NIW - Dispensa de Vaga)</td>
+              <td><strong>+30 pontos</strong></td>
+            </tr>
+            <tr>
+              <td>Investimento — EB-5 (Aporte de capital nos EUA)</td>
+              <td><strong>+30 pontos</strong></td>
+            </tr>
+            <tr>
+              <td>Emprego — EB-3 (Trabalhador qualificado ou profissional)</td>
+              <td><strong>+22 pontos</strong></td>
+            </tr>
+            <tr>
+              <td>Cônjuge de residente permanente (F2A) ou Asilo/Refúgio em andamento</td>
+              <td><strong>+20 pontos</strong></td>
+            </tr>
+            <tr>
+              <td>Loteria de Vistos (elegível por exceção de nascimento do cônjuge/pais)</td>
+              <td><strong>+15 pontos</strong></td>
+            </tr>
+            <tr>
+              <td>Irmão(ã) ou filho(a) casado(a) de cidadão americano (F3/F4)</td>
+              <td><strong>+10 pontos</strong></td>
+            </tr>
+            <tr>
+              <td>Loteria de Vistos (sem exceção - nascido no Brasil)</td>
+              <td><strong>0 pontos</strong> (Inelegível)</td>
+            </tr>
+            <tr>
+              <td rowspan="3"><strong>Qualificação e Provas (Q)</strong></td>
+              <td>Robusta (evidências sólidas de relacionamento; doutorado/mestrado e experiência; investimento estruturado)</td>
+              <td><strong>+30 pontos</strong></td>
+            </tr>
+            <tr>
+              <td>Moderada (união recente porém legítima; bacharelado com experiência intermediária)</td>
+              <td><strong>+15 pontos</strong></td>
+            </tr>
+            <tr>
+              <td>Frágil ou incompleta (sem diplomas avançados ou poucas provas de relacionamento/vínculo)</td>
+              <td><strong>+0 pontos</strong></td>
+            </tr>
+            <tr>
+              <td rowspan="4"><strong>Situação Migratória (D)</strong></td>
+              <td>Fora dos EUA via processo consular regular</td>
+              <td><strong>+25 pontos</strong></td>
+            </tr>
+            <tr>
+              <td>Dentro dos EUA com status legal válido (elegível para ajuste de status)</td>
+              <td><strong>+25 pontos</strong></td>
+            </tr>
+            <tr>
+              <td>Nunca viajou para os EUA (neutro)</td>
+              <td><strong>+10 pontos</strong></td>
+            </tr>
+            <tr>
+              <td>Dentro dos EUA em situação irregular (overstay)</td>
+              <td><strong>-15 pontos</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="mt-4">Fator de Ajuste de Prioridade (Ap)</h2>
+      <p>
+        Reflete o tempo de espera das cotas anuais do boletim de vistos. Categorias sem limite de fila imediata (cônjuges de cidadãos, EB-1, EB-5, asilo concedido) têm multiplicador de <strong>1.0</strong>. Categorias com fila no Visa Bulletin (EB-2, EB-3, F2A, F3/F4, Loteria) sofrem ajuste de <strong>0.80</strong> na probabilidade de aprovação imediata para retratar o processamento de longo prazo.
+      </p>
+    </section>
+
     <!-- Perguntas Frequentes / FAQ -->
     <section id="faq-section" class="py-4">
       <h2>Perguntas Frequentes sobre Visto Americano e Green Card</h2>
       <p class="text-muted">Clique sobre cada pergunta para expandir e ler as respostas e detalhes.</p>
 
       <div class="faq-container">
-        <!-- FAQ 1 -->
+        <!-- FAQ 1 (Visto) -->
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(event)">
             Qual a chance de ter o visto americano negado?
@@ -186,7 +293,25 @@
           </div>
         </div>
 
-        <!-- FAQ 2 -->
+        <!-- FAQ 2 (Green Card - Novo) -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(event)">
+            Como conseguir o green card e como funciona?
+          </div>
+          <div class="faq-answer">
+            <p>
+              Muitos nos perguntam <strong>como conseguir o green card</strong> e sobre o <strong>green card como funciona</strong>.
+            </p>
+            <p>
+              O Green Card é o documento que concede residência permanente nos EUA. A obtenção pode se dar por parentesco familiar, casamento, trabalho (vistos de imigração como EB-1, EB-2, EB-3), investimentos em empresas geradoras de empregos (EB-5), ou programas humanitários (asilo/refúgio).
+            </p>
+            <div style="background-color: rgba(0,0,0,0.05); padding: 10px; border-radius: 4px; font-size: 0.85rem; margin-top: 10px; border-left: 4px solid var(--danger);">
+              <strong>Nota:</strong> Informações de prazos e taxas são estimativas genéricas e não substituem o aconselhamento de advogados de imigração licenciados.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 3 (Visto) -->
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(event)">
             Visto americano negado quanto tempo para solicitar outro?
@@ -204,7 +329,22 @@
           </div>
         </div>
 
-        <!-- FAQ 3 -->
+        <!-- FAQ 4 (Green Card - Novo) -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(event)">
+            Brasileiro pode participar da loteria do green card?
+          </div>
+          <div class="faq-answer">
+            <p>
+              Sobre se <strong>brasileiro pode participar da loteria do green card</strong>: atualmente, o Brasil está <strong>fora</strong> da lista de países elegíveis para a Loteria do Green Card (Diversity Visa), por ter enviado mais de 50 mil imigrantes para os EUA nos últimos cinco anos.
+            </p>
+            <p>
+              Contudo, há exceções: você pode se qualificar caso seu cônjuge ou seus pais tenham nascido em um país elegível e você faça a aplicação conjunta. A inscrição oficial no programa é 100% gratuita no site oficial do governo americano.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 (Visto) -->
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(event)">
             Como saber o motivo do visto negado?
@@ -219,7 +359,22 @@
           </div>
         </div>
 
-        <!-- FAQ 4 -->
+        <!-- FAQ 6 (Green Card - Novo) -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(event)">
+            Green card por casamento como funciona e quanto tempo demora?
+          </div>
+          <div class="faq-answer">
+            <p>
+              O <strong>green card por casamento como funciona</strong> depende do status legal do cônjuge patrocinador. Se casado com cidadão americano, o processo é imediato e costuma levar de 12 a 18 meses. Se casado com residente permanente, cai na fila F2A do Visa Bulletin, podendo demorar mais de 2 anos.
+            </p>
+            <p>
+              Para ser aprovado, o casal deve comprovar de forma robusta a veracidade do relacionamento (fotos, contas conjuntas, contratos de aluguel, etc.) para evitar o crime de fraude imigratória.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 7 (Visto) -->
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(event)">
             O que mais reprova no visto?
@@ -237,7 +392,24 @@
           </div>
         </div>
 
-        <!-- FAQ 5 -->
+        <!-- FAQ 8 (Green Card - Novo) -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(event)">
+            Qual a diferença entre os vistos de emprego EB-1, EB-2 e EB-3?
+          </div>
+          <div class="faq-answer">
+            <p>
+              Os caminhos profissionais (Employment-Based) dividem-se em prioridades:
+            </p>
+            <ul>
+              <li><strong>EB-1:</strong> Habilidades extraordinárias reconhecidas nacional ou internacionalmente, professores/pesquisadores de destaque e executivos multinacionais. Geralmente sem fila de espera.</li>
+              <li><strong>EB-2:</strong> Profissionais com diplomas avançados (mestrado/doutorado) ou com habilidades excepcionais. Inclui o **EB-2 NIW** (National Interest Waiver), que permite obter o Green Card de forma independente sem depender de patrocinador de emprego.</li>
+              <li><strong>EB-3:</strong> Profissionais com diploma de bacharelado, trabalhadores qualificados e não qualificados. Possui as maiores filas de cota anual.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- FAQ 9 (Visto) -->
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(event)">
             É possível reverter um visto negado?
@@ -254,12 +426,24 @@
               Ao realizar a nova tentativa, você deve preencher o formulário explicando os motivos da recusa anterior de forma honesta.
             </p>
             <p>
-              Deixe claro quais aspectos mudaram na sua vida profissional ou pessoal desde a última entrevista.
+              Deixe claro quais aspects mudaram na sua vida profissional ou pessoal desde a última entrevista.
             </p>
           </div>
         </div>
 
-        <!-- FAQ 6 -->
+        <!-- FAQ 10 (Green Card - Novo) -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(event)">
+            Quanto custa o green card por investimento (EB-5)?
+          </div>
+          <div class="faq-answer">
+            <p>
+              Para o <strong>green card por investimento</strong> via programa EB-5, os valores regulamentares exigidos atualmente partem de **$800.000 USD** para projetos em áreas de emprego visadas (TEA) ou **$1.050.000 USD** para outras áreas. Além do capital, o investidor deve comprovar a criação de pelo menos 10 vagas de emprego em tempo integral para trabalhadores americanos.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 11 (Visto) -->
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(event)">
             Visto americano como tirar e qual o valor da taxa?
@@ -281,7 +465,19 @@
           </div>
         </div>
 
-        <!-- FAQ 7 -->
+        <!-- FAQ 12 (Green Card - Novo) -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(event)">
+            Qual a diferença entre green card condicional e permanente?
+          </div>
+          <div class="faq-answer">
+            <p>
+              O Green Card condicional possui validade de 2 anos e é emitido em casos de investimento EB-5 e casamentos recentes (menos de 2 anos de união). Nos 90 dias antes do vencimento deste documento, o solicitante deve protocolar uma petição solicitando a remoção das condições. Uma vez aprovada, ele recebe o Green Card permanente com validade padrão de 10 anos.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 13 (Visto) -->
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(event)">
             Visto americano aprovado: e agora?
@@ -297,7 +493,7 @@
           </div>
         </div>
 
-        <!-- FAQ 8 -->
+        <!-- FAQ 14 (Visto) -->
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(event)">
             O visto americano é aprovado na hora?
