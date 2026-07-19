@@ -25,151 +25,194 @@
   </div>
 
   <main class="container py-4">
-    <div class="card">
+    <div class="card" id="docs-tab-wrapper">
       <h1 class="mb-3 text-center">Checklist de Documentos Necessários</h1>
       <p class="text-muted text-center mb-4">
         Organize seus documentos em uma pasta e marque-os abaixo à medida que for separando para a sua entrevista consular.
       </p>
 
-      <!-- Grupo 1: Obrigatórios -->
-      <h2 class="mb-3 mt-4 text-primary" style="border-bottom: 2px solid var(--primary); padding-bottom: 5px;">1. Documentos Obrigatórios (Indispensáveis)</h2>
-      <p class="text-muted">Sem estes documentos, você não poderá entrar no Consulado ou no CASV:</p>
-      
-      <div class="form-check-group my-3">
-        <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
-          <input type="checkbox" id="doc1" style="transform: scale(1.3); margin-top: 5px;">
-          <label for="doc1" class="form-label" style="font-weight: 500;">
-            <strong>Passaporte Atual Válido:</strong> Deve ter validade mínima cobrindo o período da viagem planejada.
-          </label>
+      <!-- Barra de abas -->
+      <div class="calc-tabs mb-4">
+        <button id="btn-docs-visto" class="calc-tab-btn active" onclick="switchTab('docs-visto', 'docs-tab-wrapper')">Visto Americano</button>
+        <button id="btn-docs-greencard" class="calc-tab-btn" onclick="switchTab('docs-greencard', 'docs-tab-wrapper')">Green Card</button>
+      </div>
+
+      <!-- Aba 1: Visto Americano -->
+      <div id="docs-visto" class="calc-tab-panel active">
+        <!-- Grupo 1: Obrigatórios -->
+        <h2 class="mb-3 mt-4 text-primary" style="border-bottom: 2px solid var(--primary); padding-bottom: 5px;">1. Documentos Obrigatórios (Indispensáveis)</h2>
+        <p class="text-muted">Sem estes documentos, você não poderá entrar no Consulado ou no CASV:</p>
+        
+        <div class="form-check-group my-3">
+          <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
+            <input type="checkbox" id="doc1" style="transform: scale(1.3); margin-top: 5px;">
+            <label for="doc1" class="form-label" style="font-weight: 500;">
+              <strong>Passaporte Atual Válido:</strong> Deve ter validade mínima cobrindo o período da viagem planejada.
+            </label>
+          </div>
+          <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
+            <input type="checkbox" id="doc2" style="transform: scale(1.3); margin-top: 5px;">
+            <label for="doc2" class="form-label" style="font-weight: 500;">
+              <strong>Página de Confirmação do Formulário DS-160:</strong> Impressa com o código de barras bem legível.
+            </label>
+          </div>
+          <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
+            <input type="checkbox" id="doc3" style="transform: scale(1.3); margin-top: 5px;">
+            <label for="doc3" class="form-label" style="font-weight: 500;">
+              <strong>Confirmação de Agendamento (CASV e Entrevista):</strong> Página impressa confirmando os horários agendados.
+            </label>
+          </div>
+          <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
+            <input type="checkbox" id="doc4" style="transform: scale(1.3); margin-top: 5px;">
+            <label for="doc4" class="form-label" style="font-weight: 500;">
+              <strong>Comprovante de Pagamento da Taxa MRV:</strong> Recibo de pagamento da taxa de visto de $185 USD.
+            </label>
+          </div>
+          <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
+            <input type="checkbox" id="doc5" style="transform: scale(1.3); margin-top: 5px;">
+            <label for="doc5" class="form-label" style="font-weight: 500;">
+              <strong>Passaportes Anteriores:</strong> Especialmente se possuírem vistos americanos anteriores (ativos ou expirados).
+            </label>
+          </div>
         </div>
-        <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
-          <input type="checkbox" id="doc2" style="transform: scale(1.3); margin-top: 5px;">
-          <label for="doc2" class="form-label" style="font-weight: 500;">
-            <strong>Página de Confirmação do Formulário DS-160:</strong> Impressa com o código de barras bem legível.
-          </label>
+
+        <!-- Grupo 2: Financeiros e Vínculos -->
+        <h2 class="mb-3 mt-4 text-success" style="border-bottom: 2px solid var(--success); padding-bottom: 5px;">2. Comprovações Financeiras e Vínculos</h2>
+        <p class="text-muted">Documentos que demonstram estabilidade socioeconômica no Brasil e garantem o seu retorno:</p>
+
+        <div class="form-check-group my-3">
+          <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
+            <input type="checkbox" id="doc6" style="transform: scale(1.3); margin-top: 5px;">
+            <label for="doc6" class="form-label" style="font-weight: 500;">
+              <strong>Declaração de Imposto de Renda Completa:</strong> Acompanhada do recibo de entrega da declaração recente.
+            </label>
+          </div>
+          <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
+            <input type="checkbox" id="doc7" style="transform: scale(1.3); margin-top: 5px;">
+            <label for="doc7" class="form-label" style="font-weight: 500;">
+              <strong>Extratos Bancários Recentes (Últimos 3 Meses):</strong> Extratos de conta corrente, poupança ou investimentos assinados ou com validação.
+            </label>
+          </div>
+          <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
+            <input type="checkbox" id="doc8" style="transform: scale(1.3); margin-top: 5px;">
+            <label for="doc8" class="form-label" style="font-weight: 500;">
+              <strong>Comprovante de Renda (Contracheques/Holerites):</strong> Três últimos recibos de salário (CLT) ou Pró-Labore se for empresário.
+            </label>
+          </div>
+          <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
+            <input type="checkbox" id="doc9" style="transform: scale(1.3); margin-top: 5px;">
+            <label for="doc9" class="form-label" style="font-weight: 500;">
+              <strong>Carteira de Trabalho (CTPS) ou Contrato Social:</strong> Para comprovar vínculo profissional e tempo de atuação.
+            </label>
+          </div>
+          <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
+            <input type="checkbox" id="doc10" style="transform: scale(1.3); margin-top: 5px;">
+            <label for="doc10" class="form-label" style="font-weight: 500;">
+              <strong>Documentos de Imóveis ou Veículos:</strong> Escrituras, contratos de compra e venda ou CRLV do veículo em seu nome.
+            </label>
+          </div>
         </div>
-        <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
-          <input type="checkbox" id="doc3" style="transform: scale(1.3); margin-top: 5px;">
-          <label for="doc3" class="form-label" style="font-weight: 500;">
-            <strong>Confirmação de Agendamento (CASV e Entrevista):</strong> Página impressa confirmando os horários agendados.
-          </label>
-        </div>
-        <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
-          <input type="checkbox" id="doc4" style="transform: scale(1.3); margin-top: 5px;">
-          <label for="doc4" class="form-label" style="font-weight: 500;">
-            <strong>Comprovante de Pagamento da Taxa MRV:</strong> Recibo de pagamento da taxa de visto de $185 USD.
-          </label>
-        </div>
-        <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
-          <input type="checkbox" id="doc5" style="transform: scale(1.3); margin-top: 5px;">
-          <label for="doc5" class="form-label" style="font-weight: 500;">
-            <strong>Passaportes Anteriores:</strong> Especialmente se possuírem vistos americanos anteriores (ativos ou expirados).
-          </label>
+
+        <!-- Grupo 3: Suporte Opcionais -->
+        <h2 class="mb-3 mt-4 text-warning" style="border-bottom: 2px solid var(--warning); padding-bottom: 5px;">3. Documentos de Suporte Relacionados ao Objetivo do Visto Temporário</h2>
+        <p class="text-muted">Para justificar a natureza e o roteiro específico da sua viagem:</p>
+
+        <div class="form-check-group my-3">
+          <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
+            <input type="checkbox" id="doc11" style="transform: scale(1.3); margin-top: 5px;">
+            <label for="doc11" class="form-label" style="font-weight: 500;">
+              <strong>Matrícula Escolar ou Universitária:</strong> Para estudantes, comprovando que necessita retornar para concluir o curso.
+            </label>
+          </div>
+          <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
+            <input type="checkbox" id="doc12" style="transform: scale(1.3); margin-top: 5px;">
+            <label for="doc12" class="form-label" style="font-weight: 500;">
+              <strong>Roteiro de Viagem / Reservas Provisórias:</strong> Informações de onde planeja ir (sem a obrigatoriedade de comprar passagens antes).
+            </label>
+          </div>
+          <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
+            <input type="checkbox" id="doc13" style="transform: scale(1.3); margin-top: 5px;">
+            <label for="doc13" class="form-label" style="font-weight: 500;">
+              <strong>Carta de Convite:</strong> Se for se hospedar na casa de parentes/amigos legais nos EUA ou participar de eventos corporativos.
+            </label>
+          </div>
         </div>
       </div>
 
-      <!-- Grupo 2: Financeiros e Vínculos -->
-      <h2 class="mb-3 mt-4 text-success" style="border-bottom: 2px solid var(--success); padding-bottom: 5px;">2. Comprovações Financeiras e Vínculos</h2>
-      <p class="text-muted">Documentos que demonstram estabilidade socioeconômica no Brasil e garantem o seu retorno:</p>
+      <!-- Aba 2: Green Card -->
+      <div id="docs-greencard" class="calc-tab-panel">
+        <!-- Grupo 1: Obrigatórios Green Card -->
+        <h2 class="mb-3 mt-4 text-primary" style="border-bottom: 2px solid var(--primary); padding-bottom: 5px;">1. Documentos Obrigatórios para Imigração</h2>
+        <p class="text-muted">Documentos essenciais de identificação e processamento do NVC/USCIS:</p>
 
-      <div class="form-check-group my-3">
-        <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
-          <input type="checkbox" id="doc6" style="transform: scale(1.3); margin-top: 5px;">
-          <label for="doc6" class="form-label" style="font-weight: 500;">
-            <strong>Declaração de Imposto de Renda Completa:</strong> Acompanhada do recibo de entrega da declaração recente.
-          </label>
+        <div class="form-check-group my-3">
+          <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
+            <input type="checkbox" id="gcdoc1" style="transform: scale(1.3); margin-top: 5px;">
+            <label for="gcdoc1" class="form-label" style="font-weight: 500;">
+              <strong>Passaporte Atual Válido:</strong> Com validade de pelo menos 6 meses além da data pretendida de entrada nos EUA.
+            </label>
+          </div>
+          <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
+            <input type="checkbox" id="gcdoc2" style="transform: scale(1.3); margin-top: 5px;">
+            <label for="gcdoc2" class="form-label" style="font-weight: 500;">
+              <strong>Página de Confirmação do Formulário DS-260 ou I-485:</strong> Confirmação de envio do formulário de solicitação de visto de imigrante ou ajuste de status.
+            </label>
+          </div>
+          <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
+            <input type="checkbox" id="gcdoc3" style="transform: scale(1.3); margin-top: 5px;">
+            <label for="gcdoc3" class="form-label" style="font-weight: 500;">
+              <strong>Confirmação de Agendamento da Entrevista:</strong> Carta oficial enviada pelo NVC ou notificação de agendamento do consulado/USCIS.
+            </label>
+          </div>
+          <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
+            <input type="checkbox" id="gcdoc4" style="transform: scale(1.3); margin-top: 5px;">
+            <label for="gcdoc4" class="form-label" style="font-weight: 500;">
+              <strong>Passaportes Anteriores:</strong> Importante para auditar todo o histórico de vistos temporários emitidos e viagens anteriores aos EUA.
+            </label>
+          </div>
         </div>
-        <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
-          <input type="checkbox" id="doc7" style="transform: scale(1.3); margin-top: 5px;">
-          <label for="doc7" class="form-label" style="font-weight: 500;">
-            <strong>Extratos Bancários Recentes (Últimos 3 Meses):</strong> Extratos de conta corrente, poupança ou investimentos assinados ou com validação.
-          </label>
-        </div>
-        <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
-          <input type="checkbox" id="doc8" style="transform: scale(1.3); margin-top: 5px;">
-          <label for="doc8" class="form-label" style="font-weight: 500;">
-            <strong>Comprovante de Renda (Contracheques/Holerites):</strong> Três últimos recibos de salário (CLT) ou Pró-Labore se for empresário.
-          </label>
-        </div>
-        <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
-          <input type="checkbox" id="doc9" style="transform: scale(1.3); margin-top: 5px;">
-          <label for="doc9" class="form-label" style="font-weight: 500;">
-            <strong>Carteira de Trabalho (CTPS) ou Contrato Social:</strong> Para comprovar vínculo profissional e tempo de atuação.
-          </label>
-        </div>
-        <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
-          <input type="checkbox" id="doc10" style="transform: scale(1.3); margin-top: 5px;">
-          <label for="doc10" class="form-label" style="font-weight: 500;">
-            <strong>Documentos de Imóveis ou Veículos:</strong> Escrituras, contratos de compra e venda ou CRLV do veículo em seu nome.
-          </label>
-        </div>
-      </div>
 
-      <!-- Grupo 3: Suporte Opcionais -->
-      <h2 class="mb-3 mt-4 text-warning" style="border-bottom: 2px solid var(--warning); padding-bottom: 5px;">3. Documentos de Suporte Relacionados ao Objetivo do Visto Temporário</h2>
-      <p class="text-muted">Para justificar a natureza e o roteiro específico da sua viagem:</p>
+        <!-- Grupo 2: Específicos do Green Card -->
+        <h2 class="mb-3 mt-4 text-success" style="border-bottom: 2px solid var(--success); padding-bottom: 5px;">2. Petições e Evidências Específicas do Pleito</h2>
+        <p class="text-muted">Documentação que comprova a legitimidade do seu status e categoria imigratória:</p>
 
-      <div class="form-check-group my-3">
-        <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
-          <input type="checkbox" id="doc11" style="transform: scale(1.3); margin-top: 5px;">
-          <label for="doc11" class="form-label" style="font-weight: 500;">
-            <strong>Matrícula Escolar ou Universitária:</strong> Para estudantes, comprovando que necessita retornar para concluir o curso.
-          </label>
-        </div>
-        <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
-          <input type="checkbox" id="doc12" style="transform: scale(1.3); margin-top: 5px;">
-          <label for="doc12" class="form-label" style="font-weight: 500;">
-            <strong>Roteiro de Viagem / Reservas Provisórias:</strong> Informações de onde planeja ir (sem a obrigatoriedade de comprar passagens antes).
-          </label>
-        </div>
-        <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
-          <input type="checkbox" id="doc13" style="transform: scale(1.3); margin-top: 5px;">
-          <label for="doc13" class="form-label" style="font-weight: 500;">
-            <strong>Carta de Convite:</strong> Se for se hospedar na casa de parentes/amigos legais nos EUA ou participar de eventos corporativos.
-          </label>
-        </div>
-      </div>
-
-      <!-- Grupo 4: Green Card (Novo) -->
-      <h2 class="mb-3 mt-4 text-success" style="border-bottom: 2px solid var(--success); padding-bottom: 5px;">4. Documentos Específicos para Processos de Green Card (Residência Permanente)</h2>
-      <p class="text-muted">Documentos essenciais para pleitos imigratórios de base familiar, profissional ou de investimento:</p>
-
-      <div class="form-check-group my-3">
-        <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
-          <input type="checkbox" id="gc1" style="transform: scale(1.3); margin-top: 5px;">
-          <label for="gc1" class="form-label" style="font-weight: 500;">
-            <strong>Petições e Confirmações do USCIS:</strong> Cópias dos formulários I-130 (Família), I-140 (Emprego) ou I-526 (Investidor) acompanhados da carta de aprovação I-797.
-          </label>
-        </div>
-        <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
-          <input type="checkbox" id="gc2" style="transform: scale(1.3); margin-top: 5px;">
-          <label for="gc2" class="form-label" style="font-weight: 500;">
-            <strong>Evidências de Relacionamento Real (Via Familiar/Casamento):</strong> Certidão de casamento recente, fotos do casal ao longo do tempo, contas conjuntas, contratos de aluguel ou seguros compartilhados.
-          </label>
-        </div>
-        <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
-          <input type="checkbox" id="gc3" style="transform: scale(1.3); margin-top: 5px;">
-          <label for="gc3" class="form-label" style="font-weight: 500;">
-            <strong>Portfólio Acadêmico e Profissional (Vistos EB):</strong> Diplomas com equivalência de credenciais nos EUA (avaliação de notas), currículo atualizado, cartas de recomendação de empregadores e prêmios.
-          </label>
-        </div>
-        <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
-          <input type="checkbox" id="gc4" style="transform: scale(1.3); margin-top: 5px;">
-          <label for="gc4" class="form-label" style="font-weight: 500;">
-            <strong>Certificados de Antecedentes Criminais:</strong> Certidão de antecedentes criminais emitida pela Polícia Federal do Brasil e de outros países onde residiu por mais de 6 meses após os 16 anos.
-          </label>
-        </div>
-        <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
-          <input type="checkbox" id="gc5" style="transform: scale(1.3); margin-top: 5px;">
-          <label for="gc5" class="form-label" style="font-weight: 500;">
-            <strong>Exame Médico Consular Lacrado:</strong> Relatório médico emitido por um profissional credenciado pelo consulado americano, acompanhado da carteira de vacinação em dia.
-          </label>
-        </div>
-        <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
-          <input type="checkbox" id="gc6" style="transform: scale(1.3); margin-top: 5px;">
-          <label for="gc6" class="form-label" style="font-weight: 500;">
-            <strong>Affidavit of Support (I-864) ou Origem dos Recursos:</strong> Termo de responsabilidade financeira do patrocinador ou comprovação minuciosa de origem legal de fundos (para EB-5).
-          </label>
+        <div class="form-check-group my-3">
+          <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
+            <input type="checkbox" id="gc1" style="transform: scale(1.3); margin-top: 5px;">
+            <label for="gc1" class="form-label" style="font-weight: 500;">
+              <strong>Petições e Confirmações do USCIS:</strong> Cópias dos formulários I-130 (Família), I-140 (Emprego) ou I-526 (Investidor) acompanhados da carta de aprovação I-797.
+            </label>
+          </div>
+          <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
+            <input type="checkbox" id="gc2" style="transform: scale(1.3); margin-top: 5px;">
+            <label for="gc2" class="form-label" style="font-weight: 500;">
+              <strong>Evidências de Relacionamento Real (Via Familiar/Casamento):</strong> Certidão de casamento recente, fotos do casal ao longo do tempo, contas conjuntas, contratos de aluguel ou seguros compartilhados.
+            </label>
+          </div>
+          <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
+            <input type="checkbox" id="gc3" style="transform: scale(1.3); margin-top: 5px;">
+            <label for="gc3" class="form-label" style="font-weight: 500;">
+              <strong>Portfólio Acadêmico e Profissional (Vistos EB):</strong> Diplomas com equivalência de credenciais nos EUA (avaliação de notas), currículo atualizado, cartas de recomendação de empregadores e prêmios.
+            </label>
+          </div>
+          <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
+            <input type="checkbox" id="gc4" style="transform: scale(1.3); margin-top: 5px;">
+            <label for="gc4" class="form-label" style="font-weight: 500;">
+              <strong>Certificados de Antecedentes Criminais:</strong> Certidão de antecedentes criminais emitida pela Polícia Federal do Brasil e de outros países onde residiu por mais de 6 meses após os 16 anos.
+            </label>
+          </div>
+          <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
+            <input type="checkbox" id="gc5" style="transform: scale(1.3); margin-top: 5px;">
+            <label for="gc5" class="form-label" style="font-weight: 500;">
+              <strong>Exame Médico Consular Lacrado:</strong> Relatório médico emitido por um profissional credenciado pelo consulado americano, acompanhado da carteira de vacinação em dia.
+            </label>
+          </div>
+          <div class="form-group" style="display: flex; gap: 10px; align-items: flex-start;">
+            <input type="checkbox" id="gc6" style="transform: scale(1.3); margin-top: 5px;">
+            <label for="gc6" class="form-label" style="font-weight: 500;">
+              <strong>Affidavit of Support (I-864) ou Origem dos Recursos:</strong> Termo de responsabilidade financeira do patrocinador ou comprovação minuciosa de origem legal de fundos (para EB-5).
+            </label>
+          </div>
         </div>
       </div>
 
