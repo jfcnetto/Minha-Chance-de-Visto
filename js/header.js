@@ -9,6 +9,7 @@ const headerHTML = `
           <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.085a.5.5 0 0 1 .196.42v.021a.5.5 0 0 1-.293.468L5 6.566l-.072-.036a.5.5 0 0 1-.222-.524l.022-.11a.5.5 0 0 1 .384-.396zm.262 2.686a.5.5 0 0 1 .196.42v.022a.5.5 0 0 1-.293.468L5 9.566l-.072-.036a.5.5 0 0 1-.222-.524l.022-.11a.5.5 0 0 1 .384-.396zm.262 2.686a.5.5 0 0 1 .196.42v.022a.5.5 0 0 1-.293.468L5 12.566l-.072-.036a.5.5 0 0 1-.222-.524l.022-.11a.5.5 0 0 1 .384-.396zM1.5 8a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
         </svg>
         <span style="font-weight: 700; color: var(--dark);">Minha Chance de Visto</span>
+      </a>
       <button class="navbar-toggler" onclick="toggleMobileMenu()" aria-label="Menu">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4.17a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4.17a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
