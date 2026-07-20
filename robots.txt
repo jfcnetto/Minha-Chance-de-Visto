@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chancedevistoamericano.com.br/sitemap.xml
