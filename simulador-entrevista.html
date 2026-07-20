@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de Entrevista para Visto Americano - Minha Chance de Visto</title>
+  <meta name="description" content="Simule sua entrevista no Consulado Americano de forma interativa. Treine suas respostas para vistos de turismo, estudos e Green Card sem acionar alertas.">
+  <meta property="og:title" content="Simulador de Entrevista para Visto Americano - Minha Chance de Visto">
+  <meta property="og:description" content="Simule sua entrevista no Consulado Americano de forma interativa. Treine suas respostas para vistos de turismo, estudos e Green Card sem acionar alertas.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chancedevistoamericano.com.br/simulador-entrevista.html">
+  <meta property="og:image" content="https://chancedevistoamericano.com.br/img/estatua_liberdade.png">
+  <link rel="canonical" href="https://chancedevistoamericano.com.br/simulador-entrevista.html">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230d6efd%22/><path d=%22M30,35 L70,35 M30,50 L70,50 M30,65 L55,65%22 stroke=%22white%22 stroke-width=%228%22 stroke-linecap=%22round%22/><circle cx=%2265%22 cy=%2265%22 r=%226%22 fill=%22%23198754%22/></svg>">
+</head>
+<body>
+
+  <!-- Placeholder do Cabeçalho -->
+  <div id="header-placeholder"></div>
+
+  <!-- Foto Turística no Topo (Estatua da Liberdade) -->
+  <div class="container mb-4">
+    <img src="img/estatua_liberdade.png" alt="Pontos Turísticos EUA" style="width: 100%; max-height: 200px; object-fit: cover; border-radius: 4px; border: 1px solid var(--gray-300);">
+  </div>
+
+  <main class="container py-4">
+    <!-- SEÇÃO 1: Escolha do Perfil / Cenário -->
+    <div id="scenario-selection" class="card">
+      <h1 class="mb-3 text-center">Simulador de Entrevista Consular</h1>
+      <p class="text-muted text-center mb-4">
+        Treine suas respostas de forma interativa e aprenda a falar com objetividade para evitar que seu visto americano seja negado.
+      </p>
+
+      <div class="alert alert-info mb-4" style="font-size: 0.9rem; text-align: left;">
+        <strong>Como funciona o simulador?</strong><br>
+        Escolha abaixo o perfil que mais se assemelha ao seu. O cônsul virtual fará 5 perguntas típicas e você deverá selecionar a melhor opção de resposta. Ao final, daremos seu veredito e a análise detalhada dos seus acertos e falhas.
+      </div>
+
+      <div class="row">
+        <!-- Perfil 1 -->
+        <div class="col-12 col-md-6 mb-3">
+          <div class="card h-100 border-primary-top" style="border: 1px solid var(--gray-300); padding: 20px; cursor: pointer; transition: transform 0.2s;" onclick="selectScenario('turismo-jovem')">
+            <h4 style="color: var(--primary);">Turismo (B1/B2) - Jovem Solteiro</h4>
+            <p class="text-muted mt-2" style="font-size: 0.85rem;">
+              Indicado para estudantes universitários ou recém-formados com poucos bens ou histórico de viagens internacionais limpo.
+            </p>
+            <button class="btn btn-primary btn-sm mt-3 w-100">Iniciar este Cenário</button>
+          </div>
+        </div>
+
+        <!-- Perfil 2 -->
+        <div class="col-12 col-md-6 mb-3">
+          <div class="card h-100 border-primary-top" style="border: 1px solid var(--gray-300); padding: 20px; cursor: pointer; transition: transform 0.2s;" onclick="selectScenario('turismo-familia')">
+            <h4 style="color: var(--primary);">Turismo (B1/B2) - Família Completa</h4>
+            <p class="text-muted mt-2" style="font-size: 0.85rem;">
+              Casal solicitando visto com filhos, possuindo estabilidade de trabalho fixo e bens físicos no Brasil.
+            </p>
+            <button class="btn btn-primary btn-sm mt-3 w-100">Iniciar este Cenário</button>
+          </div>
+        </div>
+
+        <!-- Perfil 3 -->
+        <div class="col-12 col-md-6 mb-3">
+          <div class="card h-100 border-primary-top" style="border: 1px solid var(--gray-300); padding: 20px; cursor: pointer; transition: transform 0.2s;" onclick="selectScenario('estudante')">
+            <h4 style="color: var(--primary);">Estudante (F-1) - Curso Acadêmico</h4>
+            <p class="text-muted mt-2" style="font-size: 0.85rem;">
+              Para estudantes solicitando visto acadêmico ou curso de inglês intensivo com patrocínio ou fundos próprios.
+            </p>
+            <button class="btn btn-primary btn-sm mt-3 w-100">Iniciar este Cenário</button>
+          </div>
+        </div>
+
+        <!-- Perfil 4 -->
+        <div class="col-12 col-md-6 mb-3">
+          <div class="card h-100 border-success-top" style="border: 1px solid var(--gray-300); padding: 20px; cursor: pointer; transition: transform 0.2s;" onclick="selectScenario('green-card')">
+            <h4 style="color: var(--success);">Imigração / Green Card (EB)</h4>
+            <p class="text-muted mt-2" style="font-size: 0.85rem;">
+              Para profissionais de alto nível pleiteando visto de imigração profissional de residência permanente (como EB-2 NIW).
+            </p>
+            <button class="btn btn-success btn-sm mt-3 w-100">Iniciar este Cenário</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 2: Diálogo Ativo da Simulação -->
+    <div id="simulation-area" class="card" style="display: none;">
+      <h2 class="mb-4" id="sim-scenario-title" style="color: var(--primary);">Simulador</h2>
+      <div id="sim-question-number" class="text-muted mb-2 fw-bold" style="font-size: 0.9rem;">Pergunta 1 de 5</div>
+      
+      <div class="sim-dialog-box mb-4">
+        <div class="sim-consul-row">
+          <div class="sim-consul-avatar">🇺🇸</div>
+          <div class="sim-bubble-consul" id="sim-question-text">
+            <strong>Cônsul:</strong> Carregando pergunta...
+          </div>
+        </div>
+        
+        <p class="text-muted mb-3" style="font-size: 0.85rem;">Selecione a resposta ideal que você daria no guichê:</p>
+        <div class="sim-options-list" id="sim-options-list">
+          <!-- As opções de botão serão injetadas via JS -->
+        </div>
+        
+        <div id="sim-feedback-container">
+          <!-- O feedback de resposta correta/incorreta será injetado aqui -->
+        </div>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 3: Tela de Resultados -->
+    <div id="result-area" class="card" style="display: none;">
+      <h1 class="mb-3 text-center">Análise da Entrevista</h1>
+      <p class="text-muted text-center mb-4">Veja seu veredito final e a revisão detalhada do seu diálogo.</p>
+      
+      <div id="result-card" class="alert mb-4">
+        <!-- Resultado resumido e score injetado via JS -->
+      </div>
+      
+      <h3 class="mb-3">Histórico e Correção do Diálogo:</h3>
+      <div id="result-details-list">
+        <!-- Histórico detalhado injetado via JS -->
+      </div>
+      
+      <div class="text-center mt-4">
+        <button class="btn btn-primary" onclick="resetSimulation()">Tentar Outro Perfil</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Placeholder do Rodapé -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Inclusões em JavaScript sem problemas de CORS -->
+  <script src="js/header.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/cookie-consent.js"></script>
+  <script src="js/includes.js"></script>
+  <script src="js/entrevista.js"></script>
+</body>
+</html>

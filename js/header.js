@@ -17,7 +17,13 @@ const headerHTML = `
       </button>
       <ul class="navbar-nav">
         <li><a href="index.html" class="nav-link" id="nav-home">Início</a></li>
-        <li><a href="calculadora.html" class="nav-link" id="nav-calc">Calculadora</a></li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link" id="nav-tools" onclick="toggleDropdown(event)" style="display: flex; align-items: center; gap: 4px;">Simuladores <span style="font-size: 0.75rem;">▼</span></a>
+          <ul class="dropdown-menu" id="tools-dropdown">
+            <li><a href="calculadora.html" class="dropdown-item" id="nav-calc">Calculadora de Chances</a></li>
+            <li><a href="simulador-entrevista.html" class="dropdown-item" id="nav-sim-entrevista">Simulador de Entrevista</a></li>
+          </ul>
+        </li>
         <li><a href="documentos.html" class="nav-link" id="nav-documentos">Documentos</a></li>
         <li><a href="dicas.html" class="nav-link" id="nav-dicas">Dicas</a></li>
         <li><a href="consulados.html" class="nav-link" id="nav-consulados">Consulados</a></li>
@@ -36,6 +42,23 @@ function toggleMobileMenu() {
     nav.classList.toggle("show");
   }
 }
+
+function toggleDropdown(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  const dropdown = document.getElementById("tools-dropdown");
+  if (dropdown) {
+    dropdown.classList.toggle("show");
+  }
+}
+
+// Fechar o dropdown ao clicar em qualquer lugar da tela
+document.addEventListener("click", () => {
+  const dropdown = document.getElementById("tools-dropdown");
+  if (dropdown && dropdown.classList.contains("show")) {
+    dropdown.classList.remove("show");
+  }
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("header-placeholder");
