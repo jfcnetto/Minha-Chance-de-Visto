@@ -18,7 +18,7 @@ const headerHTML = `
       <ul class="navbar-nav">
         <li><a href="index.html" class="nav-link" id="nav-home">Início</a></li>
         <li class="nav-item dropdown">
-          <a href="#" class="nav-link" id="nav-tools" onclick="toggleDropdown(event)" style="display: flex; align-items: center; gap: 4px;">Simuladores <span style="font-size: 0.75rem;">▼</span></a>
+          <a href="#" class="nav-link" id="nav-tools" onclick="toggleDropdown(event)" style="display: flex; align-items: center; gap: 4px;">Teste sua chance <span style="font-size: 0.75rem;">▼</span></a>
           <ul class="dropdown-menu" id="tools-dropdown">
             <li><a href="calculadora.html" class="dropdown-item" id="nav-calc">Calculadora de Chances</a></li>
             <li><a href="simulador-entrevista.html" class="dropdown-item" id="nav-sim-entrevista">Simulador de Entrevista</a></li>
